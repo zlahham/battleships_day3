@@ -2,13 +2,12 @@ require_relative "cell"
 
 class Grid
   DEFAULT_SIZE = 10
-  attr_reader :array
-  attr_reader :size
+  attr_reader :array, :size
 
-  def initialize(options = {size: DEFAULT_SIZE, content: Cell.new} )
+  def initialize(options = {size: DEFAULT_SIZE, content: Cell} )
     @size = options[:size]
     @content = options[:content]
-    create_grid
+     create_grid
   end
 
   def create_grid
@@ -17,6 +16,6 @@ class Grid
   end
 
   def populate_grid
-    @array = @array.map! {|inner_array| inner_array.map! {|x| x = Cell.new } } #requires refactor
+    @array = @array.map! { |inner_array| inner_array.map! {|x| x = @content.create } }
   end
 end
