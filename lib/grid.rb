@@ -7,8 +7,8 @@ class Grid
   end
 
   DEFAULT_SIZE = 10
+
   attr_reader :grid_locations, :size
-  #attr_accessor :content
 
   def initialize(options = {size: DEFAULT_SIZE, content: Cell} )
     @size = options[:size]
@@ -25,13 +25,10 @@ class Grid
     @grid_locations = @grid_locations.map! { |inner_array| inner_array.map! {|x| x = @content.create } }
   end
 
-
   def insert(ship, coordinate)
     coordinate_converter(coordinate)
     grid_locations[@x][@y].content = ship
   end
-
-
 
   private
 
@@ -41,5 +38,4 @@ class Grid
     y = coordinate.to_i
     @y = y -1
   end
-
 end

@@ -3,7 +3,7 @@ require 'board'
 describe Board do
 
 # let(:ship){ double(:ship, place: true, placed?: true) }
-let(:ship){ double(:ship, place: true) }
+let(:ship){ double(:ship, place: true, confirm_place: :ship) }
 let(:grid){ double(:grid, insert: true)}
 
   it "has a ships array" do
@@ -22,7 +22,7 @@ let(:grid){ double(:grid, insert: true)}
     end
 
     it 'calls insert method on grid' do
-      expect(subject.place(ship, "A1", grid)).to eq(ship)
+      expect(subject.place(ship, "A1", grid)).to eq(:ship)
     end
 
     it 'tells ships it is placed' do

@@ -19,6 +19,3 @@ class Board
   end
 end
 
-
-
-# board.grid.grid_locations[0][5].content = Ship.new
