@@ -13,5 +13,4 @@ describe Grid do
     grid = described_class.new({size: 5})
     expect(grid.size).to eq(5)
   end
-
 end
