@@ -8,6 +8,7 @@ class Grid
 
   DEFAULT_SIZE = 10
   attr_reader :grid_locations, :size
+  #attr_accessor :content
 
   def initialize(options = {size: DEFAULT_SIZE, content: Cell} )
     @size = options[:size]
@@ -27,8 +28,10 @@ class Grid
 
   def insert(ship, coordinate)
     coordinate_converter(coordinate)
-    grid_locations[@x][@y] = ship
+    grid_locations[@x][@y].content = ship
   end
+
+
 
   private
 
@@ -38,11 +41,8 @@ class Grid
     coord_arr = coordinate.to_s.split('')
     x = coord_arr[0]
     y = coord_arr[1]
-
     @x = alpha_table[x.upcase]
     @y = (y.to_i - 1)
-
-    conversion = [[@x],[@y]]
   end
 
 end

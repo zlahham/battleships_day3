@@ -1,5 +1,6 @@
 require_relative "ship"
 require_relative "grid"
+require_relative "cell"
 
 class Board
 
@@ -16,3 +17,7 @@ class Board
     @grid.insert(ship, coordinate)
   end
 end
+
+
+
+# board.grid.grid_locations[0][5].content = Ship.new

@@ -6,7 +6,7 @@ class Cell
     Cell.new
   end
 
-  attr_reader :content
+  attr_accessor :content
 
   def initialize(options = {content: Water})
     @content = options[:content]
