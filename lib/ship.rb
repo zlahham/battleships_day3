@@ -7,4 +7,10 @@ class Ship
   def placed?
     @placed
   end
+
+  def confirm_place
+    raise "Ship has already been placed" if placed?
+    @placed = true
+  end
+
 end

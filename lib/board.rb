@@ -15,6 +15,7 @@ class Board
   def place(ship, coordinate, grid = @grid)
     @ships << ship
     @grid.insert(ship, coordinate)
+    ship.confirm_place
   end
 end
 

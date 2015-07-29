@@ -35,7 +35,7 @@ class Grid
 
   private
 
-  def coordinate_converter(coordinate)
+  def coordinate_converter(coordinate) # Fix for the 10 digit
     alpha_table = {}
     (('A'..'Z').zip(0..25)).each { |x| alpha_table[x[0]] = x[1] }
     coord_arr = coordinate.to_s.split('')
