@@ -1,4 +1,4 @@
-require "water"
+require_relative "water"
 
 class Cell
 
