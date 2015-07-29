@@ -24,9 +24,5 @@ let(:grid){ double(:grid, insert: true)}
     it 'calls insert method on grid' do
       expect(subject.place(ship, "A1", grid)).to eq(:ship)
     end
-
-    it 'tells ships it is placed' do
-      # WORKING ON THIS ONE
-    end
   end
 end
