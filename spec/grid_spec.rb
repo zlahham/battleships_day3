@@ -2,6 +2,7 @@ require "grid"
 describe Grid do
 
   let(:cell) { double(:cell, create: true) }
+  let(:ship) { double(:ship) }
   it 'creates a grid' do
     expect(subject.create_grid.length).to eq(10)
   end
@@ -17,6 +18,15 @@ describe Grid do
 
   it 'will be filled with objects on creation' do
     grid = described_class.new({size: 5, content: cell})
-    expect(grid.array.all?).to eq(true)
+    expect(grid.grid_locations.all?).to eq(true)
+  end
+
+  describe ' #insert' do
+    it 'inserts ship into location' do
+      subject.insert(ship, "A1")
+      expect(subject.grid_locations[0][0]).to eq(ship)
+
+    end
+
   end
 end

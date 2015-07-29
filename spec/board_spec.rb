@@ -14,15 +14,19 @@ let(:grid){ double(:grid, insert: true)}
     expect(subject).to respond_to(:place)
   end
 
-  describe "#place" do
+  describe " #place" do
 
     it 'puts placed ship in ships' do
-      subject.place ship, grid
+      subject.place(ship, "A1", grid)
       expect(subject.ships).to include ship
     end
 
     it 'calls insert method on grid' do
-      expect(subject.place ship, grid).to eq(true)
+      expect(subject.place(ship, "A1", grid)).to eq(ship)
+    end
+
+    it 'tells ships it is placed' do
+      # WORKING ON THIS ONE
     end
   end
 end

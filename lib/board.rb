@@ -3,7 +3,7 @@ require_relative "grid"
 
 class Board
 
-  attr_reader :ships
+  attr_reader :ships, :grid
 
   def initialize (options = {container: Grid})
     @container = options[:container]
@@ -11,8 +11,8 @@ class Board
     @grid = @container.create
   end
 
-  def place ship, grid = @grid
+  def place(ship, coordinate, grid = @grid)
     @ships << ship
-    @grid.insert
+    @grid.insert(ship, coordinate)
   end
 end
