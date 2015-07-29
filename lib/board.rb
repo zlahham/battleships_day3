@@ -6,10 +6,11 @@ class Board
 
   attr_reader :ships, :grid
 
-  def initialize (options = { container: Grid })
+  def initialize (options = { size: 10, container: Grid })
+    @size = options[:size]
     @container = options[:container]
     @ships = []
-    @grid = @container.create
+    @grid = @container.create options = {size: @size}
   end
 
   def place(ship, coordinate, grid = @grid)
