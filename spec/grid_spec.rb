@@ -19,6 +19,4 @@ describe Grid do
     grid = described_class.new({size: 5, content: cell})
     expect(grid.array.all?).to eq(true)
   end
-
-
 end

@@ -1,6 +1,5 @@
 class Ship
 
-
   def initialize
     @placed = false
   end
