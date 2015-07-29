@@ -24,7 +24,7 @@ class Grid
     @array = @array.map! { |inner_array| inner_array.map! {|x| x = @content.create } }
   end
 
-  def insert
+  def insert  # WORK HERE NEXT
     true
   end
 

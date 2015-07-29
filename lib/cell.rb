@@ -8,7 +8,8 @@ class Cell
 
   attr_reader :content
 
-  def initialize(options = {content: Water.new})
+  def initialize(options = {content: Water})
     @content = options[:content]
+    @content.create
   end
 end
