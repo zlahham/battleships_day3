@@ -19,7 +19,13 @@ class Grid
 
   def insert(ship, coordinate)
     coordinate_converter(coordinate)
-    grid_locations[@coordinates[0]][@coordinates[1]].content = ship
+    grid_locations[@coords[0]][@coords[1]].content = ship
+    ship_placement_calculator(ship, coordinate)
+  end
+
+  def ship_placement_calculator(ship, coordinate)
+    (ship.size-1).times { @coords[0] += 1 ; grid_locations[@coords[0]][@coords[1]].content = ship}
+    #check if this is ok???
   end
 
   private
@@ -34,10 +40,8 @@ class Grid
   end
 
   def coordinate_converter(coordinate)
-    x = coordinate.slice(0).upcase.ord - 65
-    coordinate.slice!(-0)
-    y = coordinate.to_i
-    y = y -1
-    @coordinates = [x,y]
+    x = coordinate[0].upcase.ord - 65
+    y = coordinate[1..-1].to_i - 1
+    @coords = [x,y]
   end
 end

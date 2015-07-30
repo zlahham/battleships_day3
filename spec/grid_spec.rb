@@ -3,8 +3,7 @@ require "grid"
 describe Grid do
 
   let(:cell) { double(:cell, create: true, content: true) }
-  let(:ship) { double(:ship) }
-
+  let(:ship) { double(:ship, size: 3) }
 
   it 'has a default size' do
     expect(subject.size).to eq(Grid::DEFAULT_SIZE)
@@ -21,8 +20,15 @@ describe Grid do
   end
 
   describe ' #insert' do
-   it 'inserts ship into location' do
-      expect(subject.insert(ship, "A1")).to eq(ship)
+    it 'inserts ship into location' do
+      subject.insert(ship,"A1")
+      expect(subject.grid_locations[0][0].content).to eq(ship)
     end
+
+    it 'inserts ship into locations relative to size' do
+      subject.insert(ship, "A1")
+      expect(subject.grid_locations[2][0].content).to eq(ship)
+    end
+
   end
 end

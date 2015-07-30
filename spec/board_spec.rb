@@ -3,7 +3,7 @@ require 'board'
 describe Board do
 
 # let(:ship){ double(:ship, place: true, placed?: true) }
-let(:ship){ double(:ship, place: true, confirm_place: :ship) }
+let(:ship){ double(:ship, place: true, confirm_place: :ship, size: 3) }
 let(:grid){ double(:grid, insert: true)}
 
   it "has a ships array" do
