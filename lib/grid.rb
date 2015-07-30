@@ -22,6 +22,8 @@ class Grid
     grid_locations[@coordinates[0]][@coordinates[1]].content = ship
   end
 
+  
+
   private
 
   def create_grid

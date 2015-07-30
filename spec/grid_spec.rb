@@ -25,4 +25,6 @@ describe Grid do
       expect(subject.insert(ship, "A1")).to eq(ship)
     end
   end
+
+
 end
