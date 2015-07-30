@@ -13,9 +13,9 @@ class Board
     @grid = @container.create options = {size: @size}
   end
 
-  def place(ship, coordinate, grid = @grid)
+  def place(ship, coordinate, direction=:horizontal)
     add_ship(ship)
-    @grid.insert(ship, coordinate)
+    @grid.insert(ship, coordinate, direction)
     ship.confirm_place
   end
 

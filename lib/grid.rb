@@ -17,18 +17,22 @@ class Grid
     create_grid
   end
 
-  def insert(ship, coordinate)
+  def insert(ship, coordinate, direction)
     coordinate_converter(coordinate)
     grid_locations[@coords[0]][@coords[1]].content = ship
-    ship_placement_calculator(ship, coordinate)
+    ship_placement_calculator(ship, coordinate, direction)
   end
 
-  def ship_placement_calculator(ship, coordinate)
-    (ship.size-1).times { @coords[0] += 1 ; grid_locations[@coords[0]][@coords[1]].content = ship}
+  def ship_placement_calculator(ship, coordinate, direction)
+    if direction == :horizontal
+      (ship.size-1).times { @coords[1] += 1 ; grid_locations[@coords[0]][@coords[1]].content = ship}
+    else
+      (ship.size-1).times { @coords[0] += 1 ; grid_locations[@coords[0]][@coords[1]].content = ship}
+    end
     #check if this is ok???
   end
 
-  
+
 
   private
 
