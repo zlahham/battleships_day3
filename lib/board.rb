@@ -14,9 +14,9 @@ class Board
   end
 
   def place(ship, coordinate, direction=:horizontal)
-    add_ship(ship)
     @grid.insert(ship, coordinate, direction)
     ship.confirm_place
+    add_ship(ship)
   end
 
   def add_ship ship

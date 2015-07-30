@@ -19,19 +19,30 @@ class Grid
 
   def insert(ship, coordinate, direction)
     coordinate_converter(coordinate)
+    check_if_can_place(@coords)
     grid_locations[@coords[0]][@coords[1]].content = ship
     ship_placement_calculator(ship, coordinate, direction)
   end
 
-  def ship_placement_calculator(ship, coordinate, direction)
+  def ship_placement_calculator(ship, coordinate, direction) # Make sure sure it checks all of th cells before placing anything
     if direction == :horizontal
-      (ship.size-1).times { @coords[1] += 1 ; grid_locations[@coords[0]][@coords[1]].content = ship}
+      (ship.size).times do
+        @coords[1] += 1
+        check_if_can_place([@coords[0],@coords[1]])
+        grid_locations[@coords[0]][@coords[1]].content = ship
+      end
+
     else
       (ship.size-1).times { @coords[0] += 1 ; grid_locations[@coords[0]][@coords[1]].content = ship}
     end
     #check if this is ok???
   end
 
+  def check_if_can_place(coord)
+
+    fail "Not available" unless grid_locations[coord[0]][coord[1]].content == Water
+
+  end
 
 
   private
@@ -46,8 +57,8 @@ class Grid
   end
 
   def coordinate_converter(coordinate)
-    x = coordinate[0].upcase.ord - 65
-    y = coordinate[1..-1].to_i - 1
+    y = coordinate[0].upcase.ord - 65
+    x = coordinate[1..-1].to_i - 1
     @coords = [x,y]
   end
 end
